@@ -1,0 +1,16 @@
+{
+    "name": "client_de_chatbots",
+    "version": "0.0.1",
+    "description": "Client de test de bots pour le projet Services Web, ENSSAT Mai 2020",
+    "license": "UNLICENSED",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/reidog78/services-web-client.git"
+    },
+    "private": true,
+    "dependencies": {
+        "ejs": "^3.1.2",
+        "express": "^4.17.1",
+        "path": "^0.12.7"
+    }
+}
