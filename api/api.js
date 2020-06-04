@@ -8,7 +8,7 @@ const Bots = require('./Bots.js')
 
 const bots = new Bots()
 router.use(bodyParser.json())
-
+router.use("/brains", express.static('brains'))
 router.use(cors())
 const corsOptions = {
     origin: 'http://localhost:3030',
@@ -58,7 +58,7 @@ router.put('/chatbots/:idBot', cors(corsOptions), function(req, res) {
 })
 
 router.delete('/chatbots/:idBot', cors(corsOptions), function(req, res) {
-    let id = bots.deleteTodo(parseInt(req.params.idBot));
+    let id = bots.deleteBot(parseInt(req.params.idBot));
     if (idBot != undefined) {
         res.setHeader('Content-Type', 'text/plain');
         res.status(200).send("OK")
