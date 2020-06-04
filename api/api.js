@@ -25,7 +25,8 @@ router.post('/chatbots', cors(corsOptions), function(req, res) {
     console.log("Bien reçu !")
     if (req.is('json')) {
         let bot = bots.addBot(req.body)
-        res.setHeader('Content-Type', 'application/json')
+        Bot.nextId++
+            res.setHeader('Content-Type', 'application/json')
         res.json(bot)
     } else {
         res.setHeader('Content-Type', 'text/plain')
@@ -59,7 +60,7 @@ router.put('/chatbots/:idBot', cors(corsOptions), function(req, res) {
 
 router.delete('/chatbots/:idBot', cors(corsOptions), function(req, res) {
     let id = bots.deleteBot(parseInt(req.params.idBot));
-    if (idBot != undefined) {
+    if (id != undefined) {
         res.setHeader('Content-Type', 'text/plain');
         res.status(200).send("OK")
     } else {
