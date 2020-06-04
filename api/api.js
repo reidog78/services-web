@@ -9,6 +9,8 @@ const Bots = require('./Bots.js')
 const bots = new Bots()
 router.use(bodyParser.json())
 
+router.use('/brains', express.static('brains'))
+
 router.use(cors())
 const corsOptions = {
     origin: 'http://localhost:3030',

@@ -8,7 +8,7 @@ class Bots {
         data.forEach((item, index, array) => {
             let newBot = new Bot(item, this);
             this.bots.set(newBot.id, newBot);
-
+            Bot.nextId++
         });
     }
     get size() {
