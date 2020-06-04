@@ -58,7 +58,7 @@ router.put('/chatbots/:idBot', cors(corsOptions), function(req, res) {
 })
 
 router.delete('/chatbots/:idBot', cors(corsOptions), function(req, res) {
-    let id = bots.deleteTodo(parseInt(req.params.idBot));
+    let id = bots.deleteBot(parseInt(req.params.idBot));
     if (idBot != undefined) {
         res.setHeader('Content-Type', 'text/plain');
         res.status(200).send("OK")
