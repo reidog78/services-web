@@ -1,9 +1,9 @@
 class Bot {
-    constructor(data) { //id,name,access,brains
+    constructor(data, bots) { //id,name,access,brains
         if (undefined != data.id) {
             this.id = data.id;
         } else {
-            this.id = parseInt(Math.floor(Math.random() * Math.floor(100000)));
+            this.id = bots.size;
         }
         if (undefined != data.name) {
             this.name = data.name;

@@ -1,14 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const cors = require('cors')
+const bodyParser = require('body-parser')
 
 const Bot = require('./Bot.js')
 const Bots = require('./Bots.js')
 
 const bots = new Bots()
+router.use(bodyParser.json())
 
+router.use(cors())
 const corsOptions = {
-    origin: 'http://localhost:8080',
+    origin: 'http://localhost:3030',
     methods: 'GET,PUT,POST,DELETE',
     optionsSuccessStatus: 200
 }
@@ -19,6 +22,7 @@ router.get('/chatbots', cors(corsOptions), function(req, res) {
 })
 
 router.post('/chatbots', cors(corsOptions), function(req, res) {
+    console.log("Bien reçu !")
     if (req.is('json')) {
         let bot = bots.addBot(req.body)
         res.setHeader('Content-Type', 'application/json')

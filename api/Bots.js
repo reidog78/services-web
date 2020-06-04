@@ -5,7 +5,7 @@ class Bots {
     constructor() {
         this.bots = new Map();
         data.forEach((item, index, array) => {
-            let newBot = new Bot(item);
+            let newBot = new Bot(item, this);
             this.bots.set(newBot.id, newBot);
         });
     }
@@ -13,7 +13,7 @@ class Bots {
         return this.bots.size;
     }
     addBot(bot) {
-        let newBot = new Bot(bot);
+        let newBot = new Bot(bot, this);
         console.log("addBot :" + JSON.stringify(newBot));
         this.bots.set(newBot.id, newBot);
         return this.getBot(newBot.id);
