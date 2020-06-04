@@ -1,9 +1,10 @@
 class Bot {
-    constructor(data, bots) { //id,name,access,brains
+    static nextId = 0;
+    constructor(data) { //id,name,access,brains
         if (undefined != data.id) {
             this.id = data.id;
         } else {
-            this.id = bots.size;
+            this.id = Bot.nextId;
         }
         if (undefined != data.name) {
             this.name = data.name;

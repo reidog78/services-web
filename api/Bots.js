@@ -2,11 +2,13 @@ const Bot = require("./Bot.js");
 const data = require("./data.json");
 
 class Bots {
+    static nextId;
     constructor() {
         this.bots = new Map();
         data.forEach((item, index, array) => {
             let newBot = new Bot(item, this);
             this.bots.set(newBot.id, newBot);
+
         });
     }
     get size() {
