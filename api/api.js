@@ -24,11 +24,10 @@ router.get('/chatbots', cors(corsOptions), function(req, res) {
 })
 
 router.post('/chatbots', cors(corsOptions), function(req, res) {
-    console.log("Bien reçu !")
     if (req.is('json')) {
         let bot = bots.addBot(req.body)
-        Bot.nextId++
-            res.setHeader('Content-Type', 'application/json')
+        Bot.nextId++;
+        res.setHeader('Content-Type', 'application/json')
         res.json(bot)
     } else {
         res.setHeader('Content-Type', 'text/plain')
@@ -42,20 +41,48 @@ router.get('/chatbots/:idBot', cors(corsOptions), function(req, res) {
         res.setHeader('Content-Type', 'application/json')
         res.json(bot)
     } else {
+        res.setHeader('Content-Type', 'text/plain')
         res.status(404).send("Bot introuvable !")
     }
 })
 
-router.put('/chatbots/:idBot', cors(corsOptions), function(req, res) {
-    res.setHeader('Content-Type', 'application/json')
+router.post('/chatbots/:idBot', cors(corsOptions), function(req, res) {
+
     if (req.is('json')) {
-        let bot = bots.updateBot(req.body)
+        let bot = bots.getBot(req.params.idBot)
         if (bot == undefined) {
+            res.setHeader('Content-Type', 'text/plain')
             res.status(404).send("Bot introuvable !")
         } else {
+            if (req.body.username != undefined && req.body.message != undefined) {
+                answer = bot.tell(req.body)
+                res.setHeader('Content-Type', 'application/json')
+                res.status(200).json({
+                    username: bot.name,
+                    message: answer
+                });
+            } else {
+                res.setHeader('Content-Type', 'text/plain')
+                res.status(400).send("JSON mal formé")
+            }
+        }
+    }
+
+})
+
+router.put('/chatbots/:idBot', cors(corsOptions), function(req, res) {
+    if (req.is('json')) {
+        let newbot = new Bot(req.body)
+        let bot = bots.updateBot(newbot)
+        if (bot == undefined) {
+            res.setHeader('Content-Type', 'text/plain')
+            res.status(404).send("Bot introuvable !")
+        } else {
+            res.setHeader('Content-Type', 'application/json')
             res.json(bot)
         }
     } else {
+        res.setHeader('Content-Type', 'text/plain')
         res.status(400).send("Le type doit être JSON");
     }
 })
@@ -66,6 +93,7 @@ router.delete('/chatbots/:idBot', cors(corsOptions), function(req, res) {
         res.setHeader('Content-Type', 'text/plain');
         res.status(200).send("OK")
     } else {
+        res.setHeader('Content-Type', 'text/plain');
         res.status(404).send("Bot introuvable !");
     }
 })

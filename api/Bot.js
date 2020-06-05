@@ -22,6 +22,8 @@ class Bot {
             this.brains = [];
         }
     }
+
+
 }
 
 module.exports = Bot;
