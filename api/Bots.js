@@ -49,7 +49,10 @@ class Bots {
     getBots() {
         let tabBots = [];
         for (const v of this.bots.values()) {
-            tabBots.push(v);
+            let bot = {}
+            Object.assign(bot, v)
+            bot.bot = {}
+            tabBots.push(bot);
         }
         return tabBots;
     }

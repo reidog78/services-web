@@ -38,8 +38,10 @@ router.post('/chatbots', cors(corsOptions), function(req, res) {
 router.get('/chatbots/:idBot', cors(corsOptions), function(req, res) {
     let bot = bots.getBot(parseInt(req.params.idBot))
     if (bot != undefined) {
+        let send = Object.assign(send, bot)
+        send.bot = {}
         res.setHeader('Content-Type', 'application/json')
-        res.json(bot)
+        res.json(send)
     } else {
         res.setHeader('Content-Type', 'text/plain')
         res.status(404).send("Bot introuvable !")
