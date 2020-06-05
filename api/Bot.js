@@ -21,7 +21,12 @@ class Bot {
         } else {
             this.brains = [];
         }
-    }
+        this.bot = new RiveScript();
+        this.bot.loadFile(this.brains, console.log("ready"), console.log("error"));
+        this.bot.sortReplies();
+    
+
+
 }
 
 module.exports = Bot;
