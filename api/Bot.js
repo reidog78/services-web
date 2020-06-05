@@ -24,7 +24,12 @@ class Bot {
         this.bot = new RiveScript();
         this.bot.loadFile(this.brains, console.log("ready"), console.log("error"));
         this.bot.sortReplies();
-    
+    }
+
+    tell(courrier_recommander){
+        reply = this.bot.reply(courrier_recommander.username, courrier_recommander.message);
+        return reply;
+    }
 
 
 }
