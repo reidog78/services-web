@@ -31,7 +31,6 @@ class Bot {
         return reply;
     }
 
-
 }
 
 module.exports = Bot;
