@@ -1,52 +1,32 @@
+import { json } from "express"
+
 const APIUrl = "http://localhost:8080/api"
 
-
-
-fetch(APIUrl + "/chatbots/0").then(function(res) {
-    console.log(res)
-    return res.json()
-}).then(function(res) {
-    init(res)
-})
-
-function init(res){
-    console.log("pouet");
-    let bot = new RiveScript();
-    bot.loadFile(res.brains, loadingDone, loadingError);
-}
-
+const elemUsername = document.getElementById("username")
+const elemMsg = document.getElementById("msg")
+const elemResponse = document.getElementById("sortie")
 
 document.getElementById("send").addEventListener("click", function() {
-    let ent = document.getElementById("entree").value
-    let sort = bot.reply("local-user", ent);
-    let out = document.getElementById("sortie")
-    out.innerHTML(sort);
-})
+    let username = elemUsername.value
+    let msg = elemMsg.value
 
-function loadingDone (){
-    console.log("ready");
-    bot.sortReplies();
-}
+    if (username != "" && msg != "") {
 
-function loadingError (){
-    console.log("error");
-}
+        let envoi = {
+            message: msg,
+            username: username
+        }
 
-document.getElementById("send").addEventListener("click", function() {
-    let msg = document.getElementById("entree").value
-    let bot = {
-        name: nom
+        fetch(APIUrl + "/chatbots/" + idBot, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(envoi)
+        }).then(function(res, err) {
+            return res.json()
+        }).then(function(res, err) {
+            elemResponse.innerHTML = res
+        })
     }
-    console.log(bot)
-    fetch(APIUrl + "/chatbots", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(bot)
-    }).then(function(res) {
-        return res.json()
-    }).then(function(res) {
-        console.log(res)
-    })
 })

@@ -10,10 +10,12 @@ router.get('/bots', function(req, res) {
     res.render("listeBots.ejs")
 })
 
-router.get('/discution/:idBot', function(req, res) {
+router.get('/discussion/:idBot', function(req, res) {
     id = req.params.idBot
-    res.render("chat.ejs", {id: id})
+    res.render("chat.ejs", { id: id })
 })
+
+
 
 router.use(function(req, res) {
     res.render("home.ejs")

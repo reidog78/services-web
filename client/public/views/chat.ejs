@@ -8,17 +8,22 @@
 
 <body>
     <h1>Discuter avec un bot</h1>
-    
+
     <p>
-        <label for="entree">Message : </label><input type="text" id="entree" name="entree">
+        <label for="username">Nom : </label><input type="text" name="username" id="username">
+        <label for="msg">Message : </label><input type="text" id="msg" name="msg">
         <button id="send">Envoyer !</button>
     </p>
     <p>
-        <label for="sortie">Réponse : </label><span type="text" id="sortie" name="sortie">
+        <label for="sortie">Réponse : </label><span type="text" id="sortie" name="sortie"></span>
     </p>
-    <script>const id = <%=id %> </script>
+
+
+    <script>
+        const idBot = <%= id %>
+    </script>
     <script src="/public/js/discuter.js"></script>
-    
+
 </body>
 
 </html>
