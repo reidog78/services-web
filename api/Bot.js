@@ -1,3 +1,5 @@
+const RiveScript = require('rivescript')
+
 class Bot {
     static nextId = 0;
     constructor(data) { //id,name,access,brains
@@ -19,16 +21,27 @@ class Bot {
         if (undefined != data.brains) {
             this.brains = data.brains;
         } else {
-            this.brains = [];
+            this.brains = ["./brains/standard.rive"];
         }
         this.bot = new RiveScript();
-        this.bot.loadFile(this.brains, console.log("ready"), console.log("error"));
-        this.bot.sortReplies();
+        this.loadbrains()
     }
 
-    tell(courrier_recommander){
-        reply = this.bot.reply(courrier_recommander.username, courrier_recommander.message);
-        return reply;
+    loading_done() {
+        this.bot.sortReplies()
+    }
+
+    loadbrains() {
+        this.bot.loadFile(this.brains).then((bot) => {
+
+            this.bot.sortReplies()
+        })
+    }
+
+    tell(courrier_recommander) {
+        return this.bot.reply(courrier_recommander.username, courrier_recommander.message).then(function(res) {
+            return res;
+        });
     }
 
 }

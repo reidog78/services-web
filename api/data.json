@@ -1,8 +1,6 @@
-[
-    {
-        "id":0,
-        "name":"blitzcrank",
-        "access":[],
-        "brains":["/brains/standard.rive"]
-    }
-]
+[{
+    "id": 0,
+    "name": "blitzcrank",
+    "access": [],
+    "brains": ["brains/standard.rive"]
+}]

@@ -49,18 +49,20 @@ router.get('/chatbots/:idBot', cors(corsOptions), function(req, res) {
 router.post('/chatbots/:idBot', cors(corsOptions), function(req, res) {
 
     if (req.is('json')) {
-        let bot = bots.getBot(req.params.idBot)
+        let bot = bots.getBot(parseInt(req.params.idBot))
         if (bot == undefined) {
             res.setHeader('Content-Type', 'text/plain')
             res.status(404).send("Bot introuvable !")
         } else {
             if (req.body.username != undefined && req.body.message != undefined) {
-                answer = bot.tell(req.body)
-                res.setHeader('Content-Type', 'application/json')
-                res.status(200).json({
-                    username: bot.name,
-                    message: answer
-                });
+                answer = bot.tell(req.body).then((answer) => {
+                    res.setHeader('Content-Type', 'application/json')
+                    res.status(200).json({
+                        username: bot.name,
+                        message: answer
+                    });
+                })
+
             } else {
                 res.setHeader('Content-Type', 'text/plain')
                 res.status(400).send("JSON mal formé")

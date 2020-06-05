@@ -1,5 +1,3 @@
-import { json } from "express"
-
 const APIUrl = "http://localhost:8080/api"
 
 const elemUsername = document.getElementById("username")
@@ -10,8 +8,8 @@ document.getElementById("send").addEventListener("click", function() {
     let username = elemUsername.value
     let msg = elemMsg.value
 
+    console.log("Here!")
     if (username != "" && msg != "") {
-
         let envoi = {
             message: msg,
             username: username
@@ -26,7 +24,8 @@ document.getElementById("send").addEventListener("click", function() {
         }).then(function(res, err) {
             return res.json()
         }).then(function(res, err) {
-            elemResponse.innerHTML = res
+            console.log(res)
+            elemResponse.innerHTML = res.message
         })
     }
 })

@@ -21,9 +21,9 @@ class Bots {
         return this.getBot(newBot.id);
     }
     getBot(id) {
-        this.bots.forEach(logMapElements);
-        console.log(typeof id);
-        console.log("getting bot with id " + id + " : " + JSON.stringify(this.bots.get(id)));
+        //this.bots.forEach(logMapElements);
+        //console.log("getting bot with id " + id + " : " + JSON.stringify(this.bots.get(id)));
+
         return this.bots.get(id);
     }
     deleteBot(id) {
