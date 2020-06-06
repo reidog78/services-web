@@ -1,4 +1,6 @@
 const RiveScript = require('rivescript')
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
 class Bot {
     static nextId = 0;
@@ -42,6 +44,21 @@ class Bot {
         return this.bot.reply(courrier_recommander.username, courrier_recommander.message).then(function(res) {
             return res;
         });
+    }
+
+    loaddiscord(token) {
+        client.once('ready', () => {
+            console.log('Ready!');
+        });
+        
+        client.on('message', message => {
+	
+            str = this.tell(message.author.username, message.content)
+        
+            message.channel.send(str)
+        });
+        
+        client.login(token);
     }
 
 }

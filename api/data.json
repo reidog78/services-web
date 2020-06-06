@@ -2,5 +2,5 @@
     "id": 0,
     "name": "blitzcrank",
     "access": [],
-    "brains": ["brains/standard.rive"]
+    "brains": ["brains/standard.rive", "brains/memory.rive"]
 }]
