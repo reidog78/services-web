@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const Discord = require("discord.js")
 
 const Bot = require('./Bot.js')
 const Bots = require('./Bots.js')
