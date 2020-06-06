@@ -13,3 +13,5 @@ app.use('/api', require("./api.js"))
 
 http.listen(PORT)
 console.log("Server started on port " + PORT)
+
+//require("./com_discord.js")
