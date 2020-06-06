@@ -16,7 +16,7 @@ class Bots {
     }
     addBot(bot) {
         let newBot = new Bot(bot, this);
-        console.log("addBot :" + JSON.stringify(newBot));
+        //console.log("addBot :" + JSON.stringify(newBot));
         this.bots.set(newBot.id, newBot);
         return this.getBot(newBot.id);
     }
