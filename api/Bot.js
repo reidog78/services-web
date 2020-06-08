@@ -17,6 +17,7 @@ class Bot {
         }
         if (undefined != data.access) {
             this.access = data.access;
+            this.loaddiscord(data.access)
         } else {
             this.access = [];
         }
@@ -29,9 +30,6 @@ class Bot {
         this.loadbrains()
     }
 
-    loading_done() {
-        this.bot.sortReplies()
-    }
 
     loadbrains() {
         this.bot.loadFile(this.brains).then((bot) => {
