@@ -15,7 +15,7 @@ class Bot {
         } else {
             this.name = "";
         }
-        if (undefined != data.access) {
+        if (undefined != data.access && data.access != "") {
             this.access = data.access;
             this.loaddiscord(data.access)
         } else {
@@ -55,8 +55,9 @@ class Bot {
 
             message.channel.send(str)
         });
-
-        client.login(token);
+        client.login(token).catch(function(err) {
+            console.log("Invalid token : " + token)
+        });
     }
 
 }
