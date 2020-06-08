@@ -31,6 +31,9 @@ Tous les paramètres sont optionnels et possèdent une valeur par défaut
     message: "Hello World !"
 }
 
+Pour parler avec un bot, il faut utiliser le préfixe "!!". Par exemple, le message Discord doit être "!!Hello bot !".
+Une amélioration de l'API pourrait être de paramétrer ce préfixe pour qu'il soit différent pour chaque bot ajouté.
+
 # Présentation du serveur
 
 Le serveur permet d'accéder à une partie de l'API décrite ci-dessus et est démarré à l'adresse http://localhost:3030
