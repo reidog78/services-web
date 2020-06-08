@@ -15,6 +15,11 @@ router.get('/discussion/:idBot', function(req, res) {
     res.render("chat.ejs", { id: id })
 })
 
+router.get('/editbot/:idBot', function(req, res) {
+    id = req.params.idBot
+    res.render("modifBot.ejs", { id: id })
+})
+
 
 
 router.use(function(req, res) {
