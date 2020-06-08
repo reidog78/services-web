@@ -50,14 +50,14 @@ class Bot {
         client.once('ready', () => {
             console.log('Ready!');
         });
-        
+
         client.on('message', message => {
-	
+
             str = this.tell(message.author.username, message.content)
-        
+
             message.channel.send(str)
         });
-        
+
         client.login(token);
     }
 
