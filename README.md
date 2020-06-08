@@ -37,9 +37,9 @@ Le serveur permet d'accéder à une partie de l'API décrite ci-dessus et est d�
 
 ## Pages disponibles
 
-- http://localhost:3030/creer : Page de création d'un bot, avec plusieurs paramètres
+- http://localhost:3030/creer : Page de création d'un bot, avec plusieurs paramètres. note : ne pas oublier de fournir le chemin du cerveau ("./brains/standard.rive" par exemple pour le cerveau standard)
 - http://localhost:3030/bots : Liste des bots déjà créés avec quelques actions disponibles pour chaque bot (suppression, lien vers dicussion)
 - http://localhost:3030/discussion/idBot : Page permettant d'interagir avec le bot idBot en choisissant son nom d'utilisateur et en lui envoyant un message
-- http://localhost:3030/editbot/idBot : Page permettant de modifier le bot idBot
+- http://localhost:3030/editbot/idBot : Page permettant de modifier le bot idBot (non terminée faute de temps, la requête coté API est fonctionnelle mais le côté client n'a pas été implémenté)
 
 Ces pages se chargeront d'effectuer des requêtes Fetch sur l'API
