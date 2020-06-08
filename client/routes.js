@@ -18,7 +18,7 @@ router.get('/discussion/:idBot', function(req, res) {
 
 
 router.use(function(req, res) {
-    res.render("home.ejs")
+    res.render("listeBots.ejs")
 })
 
 

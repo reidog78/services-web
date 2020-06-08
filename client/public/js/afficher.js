@@ -31,10 +31,13 @@ function creerTableau(res) {
             })
         })
 
+        let tdDiscuter = document.createElement("td")
+        tdDiscuter.innerHTML = '<a href="discussion/' + i.id + '">Discuter</a>'
 
         tr.appendChild(tdId)
         tr.appendChild(tdNom)
         tr.appendChild(tdSuppr)
+        tr.appendChild(tdDiscuter)
         table.appendChild(tr)
     }
 }
