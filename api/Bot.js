@@ -17,7 +17,7 @@ class Bot {
         }
         if (undefined != data.access && data.access != "") {
             this.access = data.access;
-            this.loaddiscord(data.access)
+            this.loadDiscord(data.access)
         } else {
             this.access = [];
         }
