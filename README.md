@@ -17,7 +17,7 @@ Les requêtes accessibles sont:
 
 Tous les paramètres sont optionnels et possèdent une valeur par défaut
 
-- Créer un bot :
+- Créer un bot :  
 {
     id: 2
     name: "My Bot",
@@ -25,11 +25,10 @@ Tous les paramètres sont optionnels et possèdent une valeur par défaut
     access: "discordToken"
 }
 
-- Envoyer un message :
+- Envoyer un message :  
 {
     username: "Mon nom d'utilisateur",
     message: "Hello World !"
-
 }
 
 # Présentation du serveur
