@@ -27,9 +27,9 @@ class Bots {
         return this.bots.get(id);
     }
     deleteBot(id) {
-        this.bots.forEach(logMapElements);
+        //this.bots.forEach(logMapElements);
         let bot = this.bots.get(id);
-        console.log("bot :" + JSON.stringify(bot));
+        //console.log("bot :" + JSON.stringify(bot));
         if (undefined != bot) {
             this.bots.delete(id);
             return id;

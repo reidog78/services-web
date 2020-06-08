@@ -46,7 +46,7 @@ class Bot {
         });
     }
 
-    loaddiscord(token) {
+    loadDiscord(token) {
         client.once('ready', () => {
             console.log('Ready!');
         });

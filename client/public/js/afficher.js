@@ -31,10 +31,19 @@ function creerTableau(res) {
             })
         })
 
+        let tdModif = document.createElement("td")
+        tdModif.innerHTML = "Modifier"
+        tdModif.classList.add("but")
+        tdModif.addEventListener("click", function(e) {
+            let id = e.target.parentNode.id.substr(4);
+            window.location.href = ("http://localhost:3030/editbot/" + id)
+        })
+
 
         tr.appendChild(tdId)
         tr.appendChild(tdNom)
         tr.appendChild(tdSuppr)
+        tr.appendChild(tdModif)
         table.appendChild(tr)
     }
 }
