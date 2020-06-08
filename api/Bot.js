@@ -54,7 +54,7 @@ class Bot {
             if (!message.content.startsWith(prefix) || message.author.bot) return;
             
             console.log(message.content.slice(2))
-            this.tell(message.author.username, message.content.slice(2)).then(function(str) {
+            this.tell({ username: message.author.username, message: message.content.slice(2) }).then(function(str) {
                 message.channel.send(str)
             })
 
