@@ -40,5 +40,6 @@ Le serveur permet d'accéder à une partie de l'API décrite ci-dessus et est d�
 - http://localhost:3030/creer : Page de création d'un bot, avec plusieurs paramètres
 - http://localhost:3030/bots : Liste des bots déjà créés avec quelques actions disponibles pour chaque bot (suppression, lien vers dicussion)
 - http://localhost:3030/discussion/idBot : Page permettant d'interagir avec le bot idBot en choisissant son nom d'utilisateur et en lui envoyant un message
+- http://localhost:3030/editbot/idBot : Page permettant de modifier le bot idBot
 
 Ces pages se chargeront d'effectuer des requêtes Fetch sur l'API

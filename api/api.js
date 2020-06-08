@@ -27,8 +27,7 @@ router.get('/chatbots', cors(corsOptions), function(req, res) {
 router.post('/chatbots', cors(corsOptions), function(req, res) {
     if (req.is('json')) {
         let bot = bots.addBot(req.body)
-        let envoi = {}
-        Object.assign(envoi, bot)
+        let envoi = Object.assign({}, bot)
         envoi.bot = {}
         Bot.nextId++;
         res.setHeader('Content-Type', 'application/json')
