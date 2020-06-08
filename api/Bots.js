@@ -27,9 +27,7 @@ class Bots {
         return this.bots.get(id);
     }
     deleteBot(id) {
-        this.bots.forEach(logMapElements);
         let bot = this.bots.get(id);
-        console.log("bot :" + JSON.stringify(bot));
         if (undefined != bot) {
             this.bots.delete(id);
             return id;
@@ -62,9 +60,6 @@ class Bots {
 
 }
 
-function logMapElements(value, key, map) {
-    console.log("m[" + key + "] = " + JSON.stringify(value));
-}
 
 
 module.exports = Bots;
