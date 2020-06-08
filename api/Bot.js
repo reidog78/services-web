@@ -1,6 +1,7 @@
 const RiveScript = require('rivescript')
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = '!!'
 
 class Bot {
     static nextId = 0;
@@ -50,10 +51,13 @@ class Bot {
         });
 
         client.on('message', message => {
+            if (!message.content.startsWith(prefix) || message.author.bot) return;
+            
+            console.log(message.content.slice(2))
+            this.tell(message.author.username, message.content.slice(2)).then(function(str) {
+                message.channel.send(str)
+            })
 
-            str = this.tell(message.author.username, message.content)
-
-            message.channel.send(str)
         });
         client.login(token).catch(function(err) {
             console.log("Invalid token : " + token)
