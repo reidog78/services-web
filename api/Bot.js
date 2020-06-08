@@ -15,8 +15,9 @@ class Bot {
         } else {
             this.name = "";
         }
-        if (undefined != data.access) {
+        if (undefined != data.access && data.access != "") {
             this.access = data.access;
+            this.loaddiscord(data.access)
         } else {
             this.access = [];
         }
@@ -29,9 +30,6 @@ class Bot {
         this.loadbrains()
     }
 
-    loading_done() {
-        this.bot.sortReplies()
-    }
 
     loadbrains() {
         this.bot.loadFile(this.brains).then((bot) => {
@@ -50,15 +48,16 @@ class Bot {
         client.once('ready', () => {
             console.log('Ready!');
         });
-        
+
         client.on('message', message => {
-	
+
             str = this.tell(message.author.username, message.content)
-        
+
             message.channel.send(str)
         });
-        
-        client.login(token);
+        client.login(token).catch(function(err) {
+            console.log("Invalid token : " + token)
+        });
     }
 
 }

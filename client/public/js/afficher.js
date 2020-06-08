@@ -39,11 +39,14 @@ function creerTableau(res) {
             window.location.href = ("http://localhost:3030/editbot/" + id)
         })
 
+        let tdDiscuter = document.createElement("td")
+        tdDiscuter.innerHTML = '<a href="discussion/' + i.id + '">Discuter</a>'
 
         tr.appendChild(tdId)
         tr.appendChild(tdNom)
         tr.appendChild(tdSuppr)
         tr.appendChild(tdModif)
+        tr.appendChild(tdDiscuter)
         table.appendChild(tr)
     }
 }
